@@ -36,7 +36,7 @@ O script oferece funcionalidades para controlar o chat de jogadores no servidor,
   } else {
       // O chat está desativado para este jogador
   }
-```
+  ```
 
 4. **Limpeza do Chat:**
 <br>As funções `ClearChatForPlayer` e `ClearChatForAll` permitem limpar um número específico de linhas do chat para um jogador ou para todos.
