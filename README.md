@@ -63,11 +63,11 @@ Caso o jogador tenha seu chat desativado, SendClientMessage e SendClientMessageT
 
 ## Notas
 
+- Certifique-se de incluir e configurar corretamente a include no seu script SA-MP.
+- Consulte o código fonte para obter informações detalhadas sobre as funções incluídas.
 - Este script é originalente criado por mim, porém serviu de base e recebeu uma adaptação por parte do [BlueN](https://github.com/devbluen/ChatConfig-Samp).
   ![Pawn Express Screenshots](https://raw.githubusercontent.com/devicewhite/PureChat/DeviceWhite/Screenshot_2024-01-21-04-40-03-227_com.discord.jpg)
 
-- Certifique-se de incluir e configurar corretamente a include no seu script SA-MP.
-- Consulte o código fonte para obter informações detalhadas sobre as funções incluídas.
 
 **Creditos:**
 - DeviceWhite (Include Original)
