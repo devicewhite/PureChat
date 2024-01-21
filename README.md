@@ -29,7 +29,7 @@ O script oferece funcionalidades para controlar o chat de jogadores no servidor,
 
 3. **Verificação do Status do Chat:**
 <br>Use a função `IsPlayerChatEnabled` para verificar se o chat está ativado ou desativado para um jogador específico.
-<br><br>
+
 ```pawn
 if(IsPlayerChatEnabled(playerid)) {
     // O chat está ativado para este jogador
