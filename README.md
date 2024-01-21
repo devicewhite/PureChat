@@ -7,8 +7,8 @@ O script oferece funcionalidades para controlar o chat de jogadores no servidor,
 ## Uso
 
 1. **Inclusão no Script:**
-<p>Certifique-se de incluir este script no seu servidor SA-MP.</p>
-<p>O código incluído no seu script deve conter a referência adequada ao arquivo `purechat.inc`.</p>
+<br>Certifique-se de incluir este script no seu servidor SA-MP.
+<br>O código incluído no seu script deve conter a referência adequada ao arquivo `purechat.inc`.
 
 ```pawn
 #include <purechat>
