@@ -32,7 +32,6 @@ static bool:ReceberMensagens[MAX_PLAYERS];
  *   playerid - The ID of the player for whom chat is being toggled.
  *   toggle   - A boolean indicating whether to enable (true) or disable (false) chat for the player.
  */
-forward ToggleChatForPlayer(playerid, bool:toggle);
 stock ToggleChatForPlayer(playerid, bool:toggle)
 {
 	if(IsPlayerConnected(playerid))
@@ -46,7 +45,6 @@ stock ToggleChatForPlayer(playerid, bool:toggle)
  * Parameters:
  *   toggle - A boolean indicating whether to enable (true) or disable (false) chat for all players.
  */
-forward ToggleChatForAll(bool:toggle);
 stock ToggleChatForAll(bool:toggle)
 {
     for (new i = GetPlayerPoolSize(); i >= 0; --i)
