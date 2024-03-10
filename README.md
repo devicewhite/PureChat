@@ -66,3 +66,4 @@ if(IsPlayerChatEnabled(playerid)) {
 **Creditos:**
 - DeviceWhite (Include Original)
 - [BlueN](https://github.com/devbluen) (Versão Adaptada)
+- Undefined (Correção do Código). (Discord dele: guil2k7)
