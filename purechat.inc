@@ -49,12 +49,8 @@ stock ToggleChatForPlayer(playerid, bool:toggle)
 forward ToggleChatForAll(bool:toggle);
 stock ToggleChatForAll(bool:toggle)
 {
-	static
-		bool:arr_true[MAX_PLAYERS] = {true, ...},
-		bool:arr_false[MAX_PLAYERS] = {false, ...};
-
-	if(toggle) ReceberMensagens = arr_true;
-	else ReceberMensagens = arr_false;
+    for (new i = GetPlayerPoolSize(); i >= 0; --i)
+        ReceberMensagens[i] = toggle;
 }
 
 /*
@@ -67,7 +63,6 @@ stock ToggleChatForAll(bool:toggle)
  * Return:
  *   Returns a boolean indicating whether the player's chat is enabled (true) or disabled (false).
  */
-forward bool:IsPlayerChatEnabled(playerid);
 stock bool:IsPlayerChatEnabled(playerid)
 {
 	return IsPlayerConnected(playerid) ? ReceberMensagens[playerid] : false;
@@ -81,13 +76,12 @@ stock bool:IsPlayerChatEnabled(playerid)
  *   playerid - The ID of the player whose chat lines are being cleared.
  *   lines    - The number of chat lines to clear. Default is 10.
  */
-forward ClearChatForPlayer(playerid, lines = 10);
 stock ClearChatForPlayer(playerid, lines = 10)
 {
 	if(IsPlayerConnected(playerid))
 	{
 		while(lines-- > 0)
-			SendClientMessage(playerid, 0, "\1");
+			SendClientMessage(playerid, 0, " ");
 	}
 }
 
@@ -98,11 +92,10 @@ stock ClearChatForPlayer(playerid, lines = 10)
  * Parameters:
  *   lines - The number of chat lines to clear for all players. Default is 10.
  */
-forward ClearChatForAll(lines = 10);
 stock ClearChatForAll(lines = 10)
 {
 	while(lines-- > 0)
-		SendClientMessageToAll(0, "\1");
+		SendClientMessageToAll(0, " ");
 }
 
 // Script hooks, don't mess
@@ -133,16 +126,14 @@ public OnPlayerConnect(playerid)
 
 public OnPlayerText(playerid, text[])
 {
-	static retn;
-	
 	/*
 	 * Script hook: PureChat_OnPlayerText
 	 * Calls a user-defined function if defined.
 	 */
 	#if defined PureChat_OnPlayerText
-		retn = PureChat_OnPlayerText(playerid, text);
+		new retn = PureChat_OnPlayerText(playerid, text);
 	#else
-		retn = 1;
+		new retn = 1;
 	#endif
 	return ReceberMensagens[playerid] ? retn : 0;
 }
@@ -169,7 +160,7 @@ public OnPlayerText(playerid, text[])
  * Return:
  *   Returns 1 if the message is sent, 0 otherwise.
  */
-forward EnviarMensagem(playerid, color, const message[]);
+
 stock EnviarMensagem(playerid, color, const message[])
 {
 	return ReceberMensagens[playerid] ? SendClientMessage(playerid, color, message) : 0;
@@ -193,14 +184,12 @@ stock EnviarMensagem(playerid, color, const message[])
  * Return:
  *   Always returns 1.
  */
-forward EnviarMensagemParaTodos(color, const message[]);
+
 stock EnviarMensagemParaTodos(color, const message[])
 {
-	static id;
-	for(id = GetPlayerPoolSize(); id >= 0; id--)
-	{
-		EnviarMensagem(id, color, const message[])
-	}
+	for(new i = GetPlayerPoolSize(); i >= 0; --i)
+		EnviarMensagem(i, color, message);
+
 	return 1;
 }
 
